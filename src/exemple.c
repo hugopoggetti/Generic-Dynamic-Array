@@ -14,6 +14,7 @@ int main(void)
     dynarray_push_top(a, &c);
     printf("first interger element = [%d]\nlast integer element = [%d]\n", *(int *)dynarray_get_element(a, 0), *(int *)dynarray_pop(a));
     printf("last element after pop [%d]\n", *(int *)dynarray_get_element(a, dynarray_get_size(a) - 1));
+    dynarray_swap(a, 0, 1);
     for (int i = 0; i < dynarray_get_size(a); i++) {
         printf("array[%d] = %d\n", i , *(int *)dynarray_get_element(a, i));
     }

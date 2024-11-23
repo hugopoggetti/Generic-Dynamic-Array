@@ -24,3 +24,4 @@ void                    dynarray_destroy(array *a);
 size_t                 dynarray_get_size(array *a);
 void    dynarray_push_top(array *a, void *element);
 bool                   dynarray_is_empty(array *a);
+int dynarray_swap(array *a, size_t index_i, size_t index_j);

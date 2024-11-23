@@ -76,6 +76,23 @@ size_t dynarray_get_size(array *a)
     return a->lenght;
 }
 
+// swap to element if the index are lower of the array size
+int dynarray_swap(array *a, size_t index_i, size_t index_j)
+{
+    if (index_i > a->lenght || index_j > a->lenght)
+        return -1;
+
+    // normal swap but we switch value not ptr, we need to preserve value of index i in tmp to re-write it in index j
+    void *tmp = malloc(sizeof(a->element_size));
+    void *i = (char *)a->data + (index_i * a->element_size);
+    void *j = (char *)a->data + (index_j * a->element_size);
+    memcpy(tmp, i, a->element_size);
+    memcpy(i, j, a->element_size);
+    memcpy(j, tmp, a->element_size);
+    free(tmp);
+    return 0;
+}
+
 // retrun the last element and delete it
 void *dynarray_pop(array *a)
 {
