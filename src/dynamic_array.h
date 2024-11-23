@@ -2,6 +2,7 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 #pragma once
 
@@ -20,4 +21,6 @@ void   dynarray_push_back(array *a, void *element);
 void *dynarray_get_element(array *a, size_t index);
 void                       *dynarray_pop(array *a);
 void                    dynarray_destroy(array *a);
-
+size_t                 dynarray_get_size(array *a);
+void    dynarray_push_top(array *a, void *element);
+bool                   dynarray_is_empty(array *a);
